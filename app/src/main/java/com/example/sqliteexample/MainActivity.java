@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         initViews();
         dbHelper = new DBHelper(this);
         
-        addUsers(dbHelper);
+        //addUsers(dbHelper);
     }
 
     public void showUsers(View view){

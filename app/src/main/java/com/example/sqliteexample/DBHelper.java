@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class DBHelper extends SQLiteOpenHelper {
     private static final String DATABASENAME = "user.db";
     private static final String TABLE_RECORD = "tbluser";
-    private static final int DATABASEVERSION = 1;
+    private static final int DATABASEVERSION = 2;
     // ?
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_EMAIL = "email";
@@ -114,7 +114,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 if(bytes!=null)
                     bitmap = getImage(bytes);
                 long id = cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_ID));
-                User user= new User(id,email,password);//,bitmap);
+                User user= new User(id,bitmap, email,password);
                 users.add(user);
             }
         }

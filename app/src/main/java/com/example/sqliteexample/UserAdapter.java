@@ -3,6 +3,7 @@ package com.example.sqliteexample;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -30,7 +31,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         User user = users.get(position);
         holder.nameTextView.setText(user.getEmail());
-        holder.emailTextView.setText(user.getEmail());
+        holder.emailTextView.setText(user.getPassword());
+        if (user.getBitmap() != null)
+            holder.userImage.setImageBitmap(user.getBitmap());
     }
 
     @Override
@@ -41,11 +44,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     public static class UserViewHolder extends RecyclerView.ViewHolder {
         public TextView nameTextView;
         public TextView emailTextView;
+        public ImageView userImage;
 
         public UserViewHolder(View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.userId); // Use your TextView IDs here
             emailTextView = itemView.findViewById(R.id.userEmail);
+            userImage = itemView.findViewById(R.id.userImage);
         }
     }
 }
